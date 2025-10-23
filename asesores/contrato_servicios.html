@@ -329,6 +329,9 @@
         <i class="fas fa-home"></i>
     </a>
 
+    <br>
+    <br>
+
     <div class="content-wrapper">
         <div class="row">
             <div class="col-12 col-md-3 mb-4"></div>
@@ -343,7 +346,7 @@
                         </div>
                         
                         <div class="form-group mb-3">
-                            <label for="rutRepresentante" class="form-label">RUT:</label>
+                            <label for="rutRepresentante" class="form-label">RUT Representante Legal:</label>
                             <input type="text" id="rutRepresentante" class="form-control" required>
                         </div>
 
@@ -368,18 +371,19 @@
                         </div>
                         
                         <div class="form-group mb-3">
-                            <label for="tipoEmpresa" class="form-label">Tipo:</label>
+                            <label for="tipoEmpresa" class="form-label">Tipo de Empresa:</label>
                             <input type="text" id="tipoEmpresa" class="form-control" placeholder="Spa, Eirl, Etc." required>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="direccionEmpresa" class="form-label">Dirección:</label>
+                            <label for="direccionEmpresa" class="form-label">Dirección de la Empresa:</label>
                             <input type="text" id="direccionEmpresa" class="form-control" placeholder="calle, número, comuna, región" required>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="modalidad" class="form-label">Propiedad de la Empresa:</label>
                             <select id="modalidad" class="form-select">
+                                <option value="SeleccionarProdiedad">Seleccionar Propiedad</option>
                                 <option value="Propietario">Propietario</option>
                                 <option value="Arriendo">Arriendo</option>
                                 <option value="Oficina Virtual">Oficina Virtual</option>
@@ -387,17 +391,17 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="contactoEmpresa" class="form-label">Teléfono:</label>
+                            <label for="contactoEmpresa" class="form-label">Teléfono de la Empresa:</label>
                             <input type="number" id="contactoEmpresa" class="form-control" required>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="mailEmpresa" class="form-label">E-mail:</label>
+                            <label for="mailEmpresa" class="form-label">E-mail de la Empresa:</label>
                             <input type="email" id="mailEmpresa" class="form-control" required>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="capital" class="form-label">Capital Inicial:</label>
+                            <label for="capital" class="form-label">Capital Inicial de la Empresa:</label>
                             <input type="text" id="capital" class="form-control" placeholder="500000" required>
                         </div>
 
@@ -489,6 +493,7 @@
                         <div class="form-group mb-3">
                             <label for="plan" class="form-label">Plan Contratado:</label>
                             <select id="plan" class="form-select">
+                                <option value="SeleccionarPlan">Seleccionar Plan</option>
                                 <option value="Emprendedor">Emprendedor</option>
                                 <option value="Pyme">Pyme</option>
                                 <option value="Empresa">Empresa</option>
@@ -503,7 +508,7 @@
                         </div>
 
                         <button type="button" onclick="generarPDF()" class="btn btn-generar-pdf w-100 d-flex align-items-center justify-content-center gap-2 py-2 fs-5 mt-3">
-                            <i class="fas fa-file-pdf"></i>Generar Contrato en PDF
+                            <i class="fas fa-file-pdf"></i>Generar PDF
                         </button>
                     </form>
                 </div>
