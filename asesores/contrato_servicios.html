@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato de Servicios - JBenAvil SpA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Estilos específicos del formulario */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-container h2 {
+            color: #1e90ff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(30, 144, 255, 0.8), 0 0 20px rgba(30, 144, 255, 0.4);
+        }
+
+        .form-label {
+            color: #1e90ff;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-shadow: 0 0 5px rgba(30, 144, 255, 0.6);
+        }
+
+        .form-control, .form-select {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background: rgba(0, 0, 0, 0.8);
+            border-color: #1e90ff;
+            box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+            color: #ffffff;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        #signatureCanvas {
+            border: 2px solid rgba(30, 144, 255, 0.4);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            cursor: crosshair;
+            display: block;
+            margin: 10px auto;
+            max-width: 100%;
+            box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+        }
+
+        .btn-outline-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(30, 144, 255, 0.4);
+            color: #1e90ff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-secondary:hover {
+            background: rgba(30, 144, 255, 0.2);
+            border-color: #1e90ff;
+            color: #1e90ff;
+            box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+        }
+
+        .btn-generar-pdf {
+            background: linear-gradient(135deg, #1e90ff 0%, #00bfff 100%);
+            border: none;
+            color: #000000;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.4);
+        }
+
+        .btn-generar-pdf:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(30, 144, 255, 0.6), 0 5px 20px rgba(30, 144, 255, 0.4);
+            background: linear-gradient(135deg, #00bfff 0%, #1e90ff 100%);
+        }
+
+        .fw-semibold {
+            color: #1e90ff;
+            text-shadow: 0 0 5px rgba(30, 144, 255, 0.6);
+        }
+
+        option {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 25px 20px;
+            }
+
+            .form-container h2 {
+                font-size: 1.5rem;
+            }
+
+            #signatureCanvas {
+                width: 100%;
+                height: 120px;
+            }
+        }
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            background: #000000;
+            min-height: 100vh;
+        }
+
+        .bg-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0a0a0a 100%);
+            z-index: -1;
+        }
+
+        .bg-fixed::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(30, 144, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(30, 144, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .content-wrapper {
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #1e90ff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(30, 144, 255, 0.8), 0 0 20px rgba(30, 144, 255, 0.4);
+        }
+
+        .form-label {
+            color: #1e90ff;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-shadow: 0 0 5px rgba(30, 144, 255, 0.6);
+        }
+
+        .form-control, .form-select {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background: rgba(0, 0, 0, 0.8);
+            border-color: #1e90ff;
+            box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+            color: #ffffff;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        #signatureCanvas {
+            border: 2px solid rgba(30, 144, 255, 0.4);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            cursor: crosshair;
+            display: block;
+            margin: 10px auto;
+            max-width: 100%;
+            box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+        }
+
+        .btn-outline-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(30, 144, 255, 0.4);
+            color: #1e90ff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-secondary:hover {
+            background: rgba(30, 144, 255, 0.2);
+            border-color: #1e90ff;
+            color: #1e90ff;
+            box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+        }
+
+        .btn-generar-pdf {
+            background: linear-gradient(135deg, #1e90ff 0%, #00bfff 100%);
+            border: none;
+            color: #000000;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.4);
+        }
+
+        .btn-generar-pdf:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(30, 144, 255, 0.6), 0 5px 20px rgba(30, 144, 255, 0.4);
+            background: linear-gradient(135deg, #00bfff 0%, #1e90ff 100%);
+        }
+
+        .fw-semibold {
+            color: #1e90ff;
+            text-shadow: 0 0 5px rgba(30, 144, 255, 0.6);
+        }
+
+        .back-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #1e90ff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+            color: #1e90ff;
+        }
+
+        .back-home:hover {
+            transform: scale(1.2);
+            border-color: #1e90ff;
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.8), 0 0 40px rgba(30, 144, 255, 0.4);
+            background: rgba(30, 144, 255, 0.2);
+            color: #1e90ff;
+        }
+
+        .back-home i {
+            font-size: 24px;
+            filter: drop-shadow(0 0 5px rgba(30, 144, 255, 0.8));
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 25px 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            #signatureCanvas {
+                width: 100%;
+                height: 120px;
+            }
+
+            .back-home {
+                width: 50px;
+                height: 50px;
+            }
+
+            .back-home i {
+                font-size: 20px;
+            }
+        }
+
+        option {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-fixed"></div>
+
+    <a href="../index.html" class="back-home" title="Volver al inicio" onclick="event.preventDefault(); window.location.href='../index.html';">
+        <i class="fas fa-home"></i>
+    </a>
+
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-12 col-md-3 mb-4"></div>
+
+            <div class="col-12 col-md-6 mb-4">
+                <div class="form-container">
+                    <h2>Contrato de Servicios<br>JBenAvil SpA</h2>
+                    <form id="contractForm">
+                        <div class="form-group mb-3">
+                            <label for="nombreRepresentante" class="form-label">Nombre Representante Legal:</label>
+                            <input type="text" id="nombreRepresentante" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label for="rutRepresentante" class="form-label">RUT:</label>
+                            <input type="text" id="rutRepresentante" class="form-control" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="direccionRepresentante" class="form-label">Dirección:</label>
+                            <input type="text" id="direccionRepresentante" class="form-control" placeholder="calle, número, comuna, región" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="contactoRepresentante" class="form-label">Teléfono:</label>
+                            <input type="number" id="contactoRepresentante" class="form-control" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="mailRepresentante" class="form-label">E-mail:</label>
+                            <input type="email" id="mailRepresentante" class="form-control" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="nombreEmpresa" class="form-label">Nombre de la Empresa:</label>
+                            <input type="text" id="nombreEmpresa" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label for="tipoEmpresa" class="form-label">Tipo:</label>
+                            <input type="text" id="tipoEmpresa" class="form-control" placeholder="Spa, Eirl, Etc." required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="direccionEmpresa" class="form-label">Dirección:</label>
+                            <input type="text" id="direccionEmpresa" class="form-control" placeholder="calle, número, comuna, región" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="modalidad" class="form-label">Propiedad de la Empresa:</label>
+                            <select id="modalidad" class="form-select">
+                                <option value="Propietario">Propietario</option>
+                                <option value="Arriendo">Arriendo</option>
+                                <option value="Oficina Virtual">Oficina Virtual</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="contactoEmpresa" class="form-label">Teléfono:</label>
+                            <input type="number" id="contactoEmpresa" class="form-control" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="mailEmpresa" class="form-label">E-mail:</label>
+                            <input type="email" id="mailEmpresa" class="form-control" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="capital" class="form-label">Capital Inicial:</label>
+                            <input type="text" id="capital" class="form-control" placeholder="500000" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="gerente" class="form-label">Gerente General:</label>
+                            <input type="text" id="gerente" class="form-control" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="administrador" class="form-label">Administrador:</label>
+                            <input type="text" id="administrador" class="form-control" required>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label class="form-label fw-bold">Socios:</label>
+
+                            <div class="row fw-semibold text-center d-none d-md-flex mb-2">
+                                <div class="col-md-4"><label>Nombre</label></div>
+                                <div class="col-md-4"><label>RUT</label></div>
+                                <div class="col-md-4"><label>% de Acciones</label></div>
+                            </div>
+
+                            <div class="row align-items-center gy-2 mb-2">
+                                <div class="col-12 col-md-4">
+                                    <input id="socio1_nombre" type="text" class="form-control" placeholder="Nombre socio 1">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <input id="socio1_rut" type="text" class="form-control" placeholder="RUT socio 1">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <input id="socio1_pct" type="number" class="form-control text-end" placeholder="0 %" min="0" max="100" step="0.01">
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center gy-2 mb-2">
+                                <div class="col-12 col-md-4">
+                                    <input id="socio2_nombre" type="text" class="form-control" placeholder="Nombre socio 2">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <input id="socio2_rut" type="text" class="form-control" placeholder="RUT socio 2">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <input id="socio2_pct" type="number" class="form-control text-end" placeholder="0 %" min="0" max="100" step="0.01">
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center gy-2 mb-2">
+                                <div class="col-12 col-md-4">
+                                    <input id="socio3_nombre" type="text" class="form-control" placeholder="Nombre socio 3">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <input id="socio3_rut" type="text" class="form-control" placeholder="RUT socio 3">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <input id="socio3_pct" type="number" class="form-control text-end" placeholder="0 %" min="0" max="100" step="0.01">
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center gy-2 mb-2">
+                                <div class="col-12 col-md-4">
+                                    <input id="socio4_nombre" type="text" class="form-control" placeholder="Nombre socio 4">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <input id="socio4_rut" type="text" class="form-control" placeholder="RUT socio 4">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <input id="socio4_pct" type="number" class="form-control text-end" placeholder="0 %" min="0" max="100" step="0.01">
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center gy-2 mb-2">
+                                <div class="col-12 col-md-4">
+                                    <input id="socio5_nombre" type="text" class="form-control" placeholder="Nombre socio 5">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <input id="socio5_rut" type="text" class="form-control" placeholder="RUT socio 5">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <input id="socio5_pct" type="number" class="form-control text-end" placeholder="0 %" min="0" max="100" step="0.01">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="nombrePrestador" class="form-label">Nombre Asesor Ejecutivo:</label>
+                            <input type="text" id="nombrePrestador" class="form-control" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="plan" class="form-label">Plan Contratado:</label>
+                            <select id="plan" class="form-select">
+                                <option value="Emprendedor">Emprendedor</option>
+                                <option value="Pyme">Pyme</option>
+                                <option value="Empresa">Empresa</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label class="form-label">Firma Representante Legal:</label><br>
+                            <canvas id="signatureCanvas" width="400" height="150"></canvas>
+                            <br>
+                            <button type="button" class="btn btn-outline-secondary mt-2" onclick="signaturePad.clear()">Limpiar Firma</button>
+                        </div>
+
+                        <button type="button" onclick="generarPDF()" class="btn btn-generar-pdf w-100 d-flex align-items-center justify-content-center gap-2 py-2 fs-5 mt-3">
+                            <i class="fas fa-file-pdf"></i>Generar Contrato en PDF
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-3 mb-4"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let signaturePad;
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const canvas = document.getElementById("signatureCanvas");
+            if (canvas) {
+                signaturePad = new SignaturePad(canvas);
+            } else {
+                console.error("El elemento canvas con ID 'signatureCanvas' no fue encontrado.");
+            }
+        });
+
+        function clearSignature() {
+            if (signaturePad) {
+                signaturePad.clear();
+            }
+        }
+
+        async function generarPDF() {
+            if (!signaturePad || signaturePad.isEmpty()) {
+                alert("Por favor, firma el contrato antes de generar el PDF.");
+                return;
+            }
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({
+                unit: "mm",
+                format: "legal"
+            });
+
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const pageHeight = doc.internal.pageSize.getHeight();
+            const margin = 20;
+            const contentWidth = pageWidth - margin * 2;
+            const lineHeight = 5;
+            const paragraphSpacing = 8;
+
+            let currentY = margin;
+
+            const checkPageBreak = (neededSpace) => {
+                if (currentY + neededSpace > pageHeight - margin) {
+                    doc.addPage();
+                    currentY = margin;
+                }
+            };
+
+            const addSectionTitle = (title, fontSize = 12, spacingBefore = 10, spacingAfter = 5) => {
+                checkPageBreak(spacingBefore + fontSize / doc.internal.scaleFactor + spacingAfter);
+                currentY += spacingBefore;
+                doc.setFont("times", "bold");
+                doc.setFontSize(fontSize);
+                doc.text(title, margin, currentY);
+                currentY += fontSize / doc.internal.scaleFactor + spacingAfter;
+            };
+
+            const addParagraph = (text, spacingAfter = paragraphSpacing) => {
+                doc.setFont("times", "normal");
+                doc.setFontSize(10);
+                const splitText = doc.splitTextToSize(text, contentWidth);
+                checkPageBreak(splitText.length * lineHeight + spacingAfter);
+                doc.text(splitText, margin, currentY);
+                currentY += splitText.length * lineHeight + spacingAfter;
+            };
+
+            const nombreRepresentante = document.getElementById("nombreRepresentante").value;
+            const rutRepresentante = document.getElementById("rutRepresentante").value;
+            const direccionRepresentante = document.getElementById("direccionRepresentante").value;
+            const contactoRepresentante = document.getElementById("contactoRepresentante").value;
+            const mailRepresentante = document.getElementById("mailRepresentante").value;
+            const nombreEmpresa = document.getElementById("nombreEmpresa").value;
+            const tipoEmpresa = document.getElementById("tipoEmpresa").value;
+            const direccionEmpresa = document.getElementById("direccionEmpresa").value;
+            const modalidad = document.getElementById("modalidad").value;
+            const contactoEmpresa = document.getElementById("contactoEmpresa").value;
+            const mailEmpresa = document.getElementById("mailEmpresa").value;
+            const capital = document.getElementById("capital").value;
+            const gerente = document.getElementById("gerente").value;
+            const administrador = document.getElementById("administrador").value;
+            const nombrePrestador = document.getElementById("nombrePrestador").value;
+            const plan = document.getElementById("plan").value;
+            
+            const preciosPlan = {
+                Emprendedor: 25000,
+                Pyme: 100000,
+                Empresa: 500000
+            };
+            const valorPlan = preciosPlan[plan] ?? 0;
+            const fechaHoy = new Date().toLocaleDateString("es-CL", { year: 'numeric', month: 'long', day: 'numeric' });
+
+            const logoW = 60;
+            const logoH = 20;
+            try {
+                const res = await fetch("../static/j_benavil.png");
+                const blob = await res.blob();
+                const logoB64 = await new Promise(r => {
+                    const fr = new FileReader();
+                    fr.onloadend = () => r(fr.result);
+                    fr.readAsDataURL(blob);
+                });
+                doc.addImage(logoB64, "PNG", pageWidth - margin - logoW, margin, logoW, logoH);
+            } catch (err) {
+                console.warn("No se pudo cargar el logo:", err);
+            }
+            currentY = margin + logoH + 15;
+
+            doc.setFont("times", "bold");
+            doc.setFontSize(20);
+            doc.text("Contrato de Prestación de Servicios", pageWidth / 2, currentY, { align: "center" });
+            currentY += 20;
+
+            addParagraph(
+                `En Cañete, a ${fechaHoy}. Entre JBenAvil SpA, RUT 78.111.447-2, con domicilio en Av. Diego Portales #705, ` +
+                `representada legalmente por Juan Arturo Benavides Ávila, C.I. 19.272.952-1 (en adelante, "EL PRESTADOR"), ` +
+                `y don(ña) ${nombreRepresentante}, C.I. ${rutRepresentante}, con domicilio en ${direccionRepresentante}, ` +
+                `teléfono ${contactoRepresentante}, correo ${mailRepresentante} (en adelante, "EL CLIENTE"), se acuerda lo siguiente:`
+            );
+
+            addSectionTitle("PRIMERO – Objeto del contrato.", 11, 5, 3);
+            addParagraph(`EL PRESTADOR se compromete a brindar servicios integrales conforme al plan contratado:`);
+            addParagraph(`• **Plan Emprendedor:** Constitución de empresa, inicio de actividades, gestión tributaria, asesoría administrativa y diseño de página web informativa (incluye hosting, dominio y soporte anual).`, 3);
+            addParagraph(`• **Plan Pyme:** Auditoría interna, gestión tributaria, asesoría administrativa y diseño de página web informativa (incluye hosting, dominio y soporte anual).`, 3);
+            addParagraph(`• **Plan Empresa:** Auditoría interna, gestión tributaria, asesoría administrativa y diseño de página web informativa (incluye hosting, dominio y soporte anual).`, 3);
+            addParagraph(`Para el registro, EL CLIENTE se suscribe al **Plan ${plan}** por un valor neto de CLP $${valorPlan.toLocaleString('es-CL')} mensuales.`);
+
+            addSectionTitle("SEGUNDO – Condiciones de pago.", 11, 5, 3);
+            addParagraph(`El valor del plan se pagará mensualmente, con fecha de vencimiento el 5 de cada mes. EL PRESTADOR deberá emitir el documento tributario correspondiente.`);
+
+            addSectionTitle("TERCERO – Obligaciones del PRESTADOR.", 11, 5, 5);
+            addParagraph(`1. Prestar los servicios descritos de manera profesional y oportuna.`);
+            addParagraph(`2. Brindar asesoramiento dentro del alcance de los servicios acordados.`);
+            addParagraph(`3. Utilizar los datos personales y Clave Única de EL CLIENTE exclusivamente para los fines autorizados.`);
+            addParagraph(`4. Implementar medidas de seguridad adecuadas para proteger la información.`);
+            addParagraph(`5. No ceder ni divulgar la información a terceros sin consentimiento expreso, salvo mandato legal.`);
+            addParagraph(`6. Garantizar el derecho del cliente a acceder, rectificar o eliminar sus datos.`);
+            addParagraph(`Los servicios serán integrados a la empresa **${nombreEmpresa}** (${tipoEmpresa}), con una capital de ${capital}, ubicada en ${direccionEmpresa}, que opera como ${modalidad}, contacto ${contactoEmpresa}, correo ${mailEmpresa}. Bajo la Asesoría Administrativa de JBenAvil SpA a través de su Asesor Ejecutivo Don/a: ${nombrePrestador}.`);
+
+            addSectionTitle("DIRECTORIO:", 11, 5, 3);
+            addParagraph(`1. Gerente general: ${gerente}`, 3);
+            addParagraph(`2. Administrador: ${administrador}`, 3);
+
+            const socios = [];
+            for (let i = 1; i <= 5; i++) {
+                const n = document.getElementById(`socio${i}_nombre`)?.value;
+                const r = document.getElementById(`socio${i}_rut`)?.value;
+                const p = document.getElementById(`socio${i}_pct`)?.value;
+                if (n && r && p) socios.push([n, r, `${p} %`]);
+            }
+            if (socios.length) {
+                checkPageBreak(50);
+                doc.autoTable({
+                    startY: currentY,
+                    head: [["Nombre socio", "RUT", "% Acciones"]],
+                    headStyles: { fillColor: [30, 144, 255] },
+                    body: socios,
+                    theme: "grid",
+                    styles: { fontSize: 9 },
+                    margin: { left: margin, right: margin }
+                });
+                currentY = doc.lastAutoTable.finalY + paragraphSpacing;
+            }
+
+            addSectionTitle("CUARTO – Obligaciones del CLIENTE.", 11, 5, 3);
+            addParagraph(`1. Proporcionar información y documentos necesarios.`);
+            addParagraph(`2. Cumplir con los pagos en los plazos establecidos.`);
+
+            addSectionTitle("QUINTO – Duración.", 11, 5, 3);
+            addParagraph(`Este contrato tendrá una duración indefinida.`);
+
+            addSectionTitle("SEXTO – Terminación.", 11, 5, 3);
+            addParagraph(`Cualquiera de las partes podrá poner término al contrato con aviso previo de 30 días.`);
+
+            addSectionTitle("SÉPTIMO – Jurisdicción.", 11, 5, 3);
+            addParagraph(`Las partes se someten a la legislación chilena y a los tribunales competentes.`);
+
+            addParagraph(`Firmado en dos ejemplares de igual tenor y fecha, quedando uno en poder de cada parte.`);
+
+            checkPageBreak(60);
+            currentY += 20;
+
+            const textY = currentY + 20;
+
+            doc.setFont("times", "normal");
+            doc.setFontSize(10);
+            const sig1X = margin + contentWidth * 0.25;
+            doc.text("Juan Benavides Ávila", sig1X, textY, { align: "center" });
+            doc.text("Representante legal JBenAvil Spa", sig1X, textY + lineHeight, { align: "center" });
+
+            const sig2X = pageWidth - margin - contentWidth * 0.25;
+            doc.text(`${nombreRepresentante}`, sig2X, textY, { align: "center" });
+            doc.text(`EL CLIENTE`, sig2X, textY + lineHeight, { align: "center" });
+
+            const firmaB64 = signaturePad.toDataURL("image/png");
+            if (firmaB64 && firmaB64.length > 200) {
+                doc.addImage(firmaB64, "PNG", sig2X - 20, textY - 20, 40, 20);
+            } else {
+                console.warn("El canvas de la firma está vacío o casi vacío. No se añadió la firma al PDF.");
+            }
+
+            const totalPages = doc.internal.getNumberOfPages();
+            for (let i = 1; i <= totalPages; i++) {
+                doc.setPage(i);
+                doc.setFont("times", "normal");
+                doc.setFontSize(8);
+                const pageNumberText = `${i} de ${totalPages}`;
+                doc.text(pageNumberText, pageWidth - margin, pageHeight - (margin / 2), { align: "right" });
+            }
+
+            doc.save(`Contrato_JBenAvil_${nombreRepresentante.replace(/\s+/g, "_")}.pdf`);
+        }
+    </script>
+</body>
+</html>

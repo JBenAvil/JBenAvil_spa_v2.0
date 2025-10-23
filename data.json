@@ -1,0 +1,144 @@
+{
+    "inicio": {
+        "imagen": "static/j_benavil.png",
+        "titulo": "Soluciones Integrales para Empresas",
+        "descripcion": "Nuestra misión es proporcionar a Emprendedores y PYMES las herramientas, estrategias y conocimientos necesarios para maximizar su crecimiento, optimizando procesos, recursos y oportunidades. Nos comprometemos a ofrecer un acompañamiento cercano y adaptado a las necesidades de cada empresa, impulsando su escalabilidad mediante soluciones innovadoras y eficientes que garanticen su éxito."
+    },
+    "quienes-somos": {
+        "imagen": "static/j_benavil.png",
+        "titulo": "Quiénes Somos",
+        "descripcion": "Visión\n\nSer la empresa de referencia en el acompañamiento, crecimiento y capacitación de Emprendedores y PYMES, brindando soluciones innovadoras y personalizadas que les permitan escalar sus operaciones de manera sostenible, rentable y eficiente, convirtiéndolas en líderes en sus respectivos sectores.\n\nMisión\n\nNuestra misión es proporcionar a Emprendedores y PYMES las herramientas, estrategias y conocimientos necesarios para maximizar su crecimiento, optimizando procesos, recursos y oportunidades. Nos comprometemos a ofrecer un acompañamiento cercano y adaptado a las necesidades de cada empresa, impulsando su escalabilidad mediante soluciones innovadoras y eficientes que garanticen su éxito a largo plazo.\n\nObjetivo General\n\nBrindar a Emprendedores y PYMES soluciones estratégicas y personalizadas que les permitan optimizar sus procesos, escalar de manera eficiente y sostenible, y alcanzar un crecimiento rentable, mediante el acompañamiento continuo y el uso de herramientas innovadoras y la Capacitación constante.\n\nNuestros Pilares Fundamentales\n\nInnovación y Adaptabilidad:\nFomentamos una cultura de innovación continua, buscando soluciones creativas y adaptadas a las necesidades cambiantes de las PYMES, para garantizarles un crecimiento sostenible y competitivo.\n\nCompromiso con el Cliente:\nNuestro enfoque está en construir relaciones a largo plazo con las PYMES, ofreciendo un acompañamiento cercano y personalizado que responda a sus desafíos específicos, con un alto nivel de compromiso hacia su éxito.\n\nExcelencia Operativa:\nBuscamos la mejora continua de nuestros procesos internos y el uso eficiente de recursos, para proporcionar soluciones que maximicen la productividad, eficiencia y rentabilidad de las empresas con las que trabajamos.\n\nEscalabilidad Sostenible:\nPromovemos estrategias que permitan a las PYMES escalar de manera equilibrada, sin perder de vista su rentabilidad y sostenibilidad, con un enfoque en el crecimiento a largo plazo.\n\nDesarrollo de Talento:\nInvertimos en el desarrollo y capacitación constante de nuestro equipo, para asegurar que estemos siempre al frente de las tendencias y conocimientos que permitan brindar un servicio de calidad excepcional.\n\nNuestros Valores Corporativos\n\nCompromiso:\nNos comprometemos con el éxito de nuestras PYMES clientes, ofreciendo soluciones y acompañamiento dedicados que generen un impacto real y positivo en su crecimiento.\n\nInnovación:\nFomentamos un entorno de creatividad y mejora constante, donde cada idea es una oportunidad para ofrecer soluciones más eficientes, tecnológicas y adaptadas a las necesidades del mercado.\n\nIntegridad:\nActuamos con honestidad y transparencia en todas nuestras relaciones, asegurándonos de que nuestros clientes confíen plenamente en nosotros como aliados estratégicos para su crecimiento.\n\nColaboración:\nTrabajamos juntos como un equipo, tanto internamente como con nuestros clientes, porque creemos que el trabajo en conjunto es la clave para lograr un crecimiento sólido y escalable.\n\nResponsabilidad:\nAsumimos la responsabilidad de las soluciones que proporcionamos, garantizando que cada decisión y estrategia esté alineada con los objetivos de nuestros clientes, y con un enfoque sostenible para el futuro.\n\nOrientación al Cliente:\nEl cliente es el centro de nuestro enfoque. Escuchamos, comprendemos y respondemos con soluciones personalizadas que se ajusten a sus necesidades, siempre buscando su éxito a largo plazo.\n\nExcelencia:\nBuscamos la calidad en todo lo que hacemos. Desde la atención al cliente hasta la entrega de resultados, nuestro estándar es siempre alto para asegurar el mejor servicio posible."
+    },
+    "formalizacion": {
+        "imagen": "static/j_benavil.png",
+        "titulo": "Formalización de Empresas",
+        "descripcion": " No estás solo/a en este camino.\n Estamos aquí para acompañarte en cada paso de tu proceso de formalización y escalabilidad.\n Juntos, llevaremos tu emprendimiento a su máximo potencial.\n\n¡Tu éxito es nuestra misión!\n\n Nuestros planes se adaptan a diferentes etapas empresariales de tu Negocio.",
+        "planes": [
+            {
+                "icon": "<svg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='#ffffff'><path d='M840-519v339q0 24-18 42t-42 18H179q-24 0-42-18t-18-42v-339q-28-24-37-59t2-70l43-135q8-27 28-42t46-15h553q28 0 49 15.5t29 41.5l44 135q11 35 1.5 70T840-519Zm-270-31q29 0 49-19t16-46l-25-165H510v165q0 26 17 45.5t43 19.5Zm-187 0q28 0 47.5-19t19.5-46v-165H350l-25 165q-4 26 14 45.5t44 19.5Zm-182 0q24 0 41.5-16.5T263-607l26-173H189l-46 146q-10 31 8 57.5t50 26.5Zm557 0q32 0 50.5-26t8.5-58l-46-146H671l26 173q3 24 20.5 40.5T758-550ZM179-180h601v-311q1 1-6.5 1H758q-25 0-47.5-10.5T666-533q-16 20-40 31.5T573-490q-30 0-51.5-8.5T480-527q-15 18-38 27.5t-52 9.5q-31 0-55-11t-41-32q-24 21-47 32t-46 11h-13.5q-6.5 0-8.5-1v311Zm601 0H179h601Z'/></svg>",
+                "nombre": "Emprendedor",
+                "descripcion": "$25.000 + IVA Mensual",
+                "direccion": "Mensual",
+                "caracteristicas": [
+                    "Formalización",
+                    "Contabilidad",
+                    "Asesoria",
+                    "Página Web"
+                ]
+            },
+            {
+                "icon": "<svg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='#ffffff'><path d='M160-740v-60h642v60H160Zm5 580v-258h-49v-60l44-202h641l44 202v60h-49v258h-60v-258H547v258H165Zm60-60h262v-198H225v198Zm-50-258h611-611Zm0 0h611l-31-142H206l-31 142Z'/></svg>",
+                "nombre": "Pyme",
+                "descripcion": "$100.000 + IVA Mensual",
+                "direccion": "Mensual",
+                "caracteristicas": [
+                    "RRHH <=50",
+                    "Contabilidad",
+                    "Asesoria",
+                    "Página Web"
+                ]
+            },
+            {
+                "icon": "<svg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='#ffffff'><path d='M726-40v-121H606v-60h120v-120h60v120h120v60H786v121h-60ZM104-161v-257H54v-60l44-202h602l45 207v55h-49v167h-60v-167H420v257H104Zm60-60h196v-197H164v197Zm-50-257h572-572ZM98-740v-60h603v60H98Zm16 262h572l-31-142H145l-31 142Z'/></svg>",
+                "nombre": "Empresa",
+                "descripcion": "$500.000 + IVA Mensual",
+                "direccion": "Mensual",
+                "caracteristicas": [
+                    "RRHH >50",
+                    "Contabilidad",
+                    "Asesoria",
+                    "Página Web"
+                ]
+            }
+        ]
+    },
+    "software": {
+        "imagen": "static/j_benavil.png",
+        "titulo": "Desarrollo de Software",
+        "descripcion": "Digitaliza tu Empresa y accede a nuevos clientes.\n\n¿Necesitas una aplicación o página web que se adapte perfectamente a tus necesidades?\n\nEn JbenAvil Spa, nos especializamos en el diseño de Software a medida, creando soluciones digitales intuitivas, efecicientes y escalables.\n\n¡Nuestro Objetivo es Impulsar Tu Negocio!.",
+        "planes": [
+            {
+                "icon": "<svg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='#FFFFFF'><path d='M334-120v-60h86v-100H140q-24 0-42-18t-18-42v-440q0-24 18-42t42-18h680q24 0 42 18t18 42v440q0 24-18 42t-42 18H540v100h86v60H334ZM140-340h680v-440H140v440Zm0 0v-440 440Z'/></svg>",
+                "nombre": "Páginas Web",
+                "descripcion": "Desde: $99.990 + IVA Anual",
+                "direccion": "Anual",
+                "caracteristicas": [
+                    "Diseño",
+                    "Hosting",
+                    "Dominio",
+                    "Certificado SSL",
+                    "Soporte"
+                ]
+            },
+            {
+                "icon": "<svg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='#FFFFFF'><path d='M330-120v-80H140q-24 0-42-18t-18-42v-520q0-24 18-42t42-18h360v60H140v520h680v-140h60v140q0 24-18 42t-42 18H630v80H330Zm350-294L494-600l42-42 114 114v-312h60v312l114-114 42 42-186 186Z'/></svg>",
+                "nombre": "Aplicaciones",
+                "descripcion": "Desde: $299.990 + IVA Anual",
+                "direccion": "Anual",
+                "caracteristicas": [
+                    "Diseño",
+                    "Hosting",
+                    "Dominio",
+                    "Certificado SSL",
+                    "Soporte"
+                ]
+            },
+            {
+                "icon": "<svg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='#FFFFFF'><path d='M40-120v-60h880v60H40Zm100-120q-24 0-42-18t-18-42v-480q0-24 18-42t42-18h680q24 0 42 18t18 42v480q0 24-18 42t-42 18H140Zm0-60h680v-480H140v480Zm0 0v-480 480Zm310-70h60v-227l74 74 42-42-146-146-146 146 42 42 74-74v227Z'/></svg>",
+                "nombre": "Software",
+                "descripcion": "Desde: $500.000 + IVA Anual",
+                "direccion": "Anual:",
+                "caracteristicas": [
+                    "Diseño",
+                    "Manual",
+                    "Capcitación",
+                    "Actualizaciones",
+                    "Soporte"
+                ]
+            }
+        ]
+    },
+    "oficina-virtual": {
+        "imagen": "static/j_benavil.png",
+        "titulo": "Oficinas Virtuales",
+        "descripcion": "Dirección Tributaria - Comercial para tu empresa sin necesidad de una oficina física.",
+        "planes": [
+            {
+                "icon": "<svg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='#FFFFFF'><path d='M80-120v-650l200-150 200 150v90h400v560H80Zm80-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 0h80v-80h-80v80Zm0 480h480v-400H320v400Zm240-240v-80h160v80H560Zm0 160v-80h160v80H560ZM400-440v-80h80v80h-80Zm0 160v-80h80v80h-80Z'/></svg>",
+                "nombre": "Plan Semestral",
+                "descripcion": "$35.000 Cada 6 Meses.",
+                "direccion": "Dirección:",
+                "caracteristicas": [
+                    "Tributaria",
+                    "Comercial",
+                    "Correspondencia",
+                    "Contrato"
+                ]
+            },
+            {
+                "icon": "<svg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='#FFFFFF'><path d='M80-120v-720h390v165h410v555H80Zm60-60h105v-105H140v105Zm0-165h105v-105H140v105Zm0-165h105v-105H140v105Zm0-165h105v-105H140v105Zm165 495h105v-105H305v105Zm0-165h105v-105H305v105Zm0-165h105v-105H305v105Zm0-165h105v-105H305v105Zm165 495h350v-435H470v105h80v60h-80v105h80v60h-80v105Zm185-270v-60h60v60h-60Zm0 165v-60h60v60h-60Z'/></svg>",
+                "nombre": "Plan Anual",
+                "descripcion": "$45.000 Cada 1 año",
+                "direccion": "Dirección:",
+                "caracteristicas": [
+                    "Tributaria",
+                    "Comercial",
+                    "Correspondencia",
+                    "Contrato"
+                ]
+            },
+            {
+                "icon": "<svg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='#FFFFFF'><path d='M80-120v-720h390v165h410v340h-60v-280H470v105h80v60h-80v105h80v60h-80v105h195v60H80Zm60-60h105v-105H140v105Zm0-165h105v-105H140v105Zm0-165h105v-105H140v105Zm0-165h105v-105H140v105Zm165 495h105v-105H305v105Zm0-165h105v-105H305v105Zm0-165h105v-105H305v105Zm0-165h105v-105H305v105ZM813-40v-87h-88v-60h88v-88h60v88h87v60h-87v87h-60ZM655-450v-60h60v60h-60Zm0 165v-60h60v60h-60Z'/></svg>",
+                "nombre": "Plan Bianual",
+                "descripcion": "$65.000 Cada 2 años",
+                "direccion": "Dirección:",
+                "caracteristicas": [
+                    "Tributaria",
+                    "Comercial",
+                    "Correspondencia",
+                    "Contrato"
+                ]
+            }
+        ]
+    }
+}
