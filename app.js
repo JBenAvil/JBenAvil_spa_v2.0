@@ -174,15 +174,15 @@ function renderContent(section, courseIndex = null) {
                     <div class="services-section">
                         <h2 class="services-title">Nuestros Servicios</h2>
                         <div class="services-grid">
-                            <div class="service-card" onclick="renderContent('formalizacion')">
+                            <div class="service-card" onclick="navigateToSection('formalizacion')">
                                 <span class="material-symbols-outlined material-icons">person_pin</span>
                                 <div class="service-card-title">Formalización de Empresa</div>
                             </div>
-                            <div class="service-card" onclick="renderContent('oficina-virtual')">
+                            <div class="service-card" onclick="navigateToSection('oficina-virtual')">
                                 <span class="material-icons">location_city</span>
                                 <div class="service-card-title">Oficina Virtual</div>
                             </div>
-                            <div class="service-card" onclick="renderContent('software')">
+                            <div class="service-card" onclick="navigateToSection('software')">
                                 <span class="material-symbols-outlined material-icons">terminal</span>
                                 <div class="service-card-title">Desarrollo de Software</div>
                             </div>
@@ -197,6 +197,15 @@ function renderContent(section, courseIndex = null) {
         
         // Actualizar estado de navegación
         history.pushState({ section: section }, '', 'index.html');
+        
+        // Scroll al inicio antes del fade in
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // En móviles, también hacer scroll del main-container
+        const mainContainer = document.querySelector('.main-container');
+        if (mainContainer) {
+            mainContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
         
         // Fade in
         setTimeout(() => {
@@ -336,7 +345,7 @@ function initWhatsAppButton() {
     const whatsappBtn = document.getElementById('whatsappBtn');
     if (whatsappBtn) {
         whatsappBtn.addEventListener('click', function() {
-            const mensaje = encodeURIComponent('Hola, me gustaría pedir más información sobre:');
+            const mensaje = encodeURIComponent('Hola, me pueden agendar una reunión');
             const telefono = '56921951687';
             window.open(`https://wa.me/${telefono}?text=${mensaje}`, '_blank');
         });
@@ -349,14 +358,13 @@ function initNavigation() {
         item.addEventListener('click', function() {
             const section = this.getAttribute('data-section');
             renderContent(section);
-            
-            // Scroll suave al contenido
-            document.querySelector('.main-container').scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-            });
         });
     });
+}
+
+// Función auxiliar para hacer scroll al inicio en las cards de servicios
+function navigateToSection(section) {
+    renderContent(section);
 }
 
 // Inicialización cuando el DOM está listo
