@@ -123,33 +123,36 @@ function renderContent(section, courseIndex = null) {
                     <div class="right-section">
                         <h1 class="section-title">${sectionData.titulo}</h1>
                         <p class="section-description">${sectionData.descripcion.replace(/\n/g, '<br>')}</p>
-                        
-                        <div class="cards-container">
-                            ${sectionData.planes.map((plan, index) => `
-                                <div class="flip-card" id="card-${section}-${index}">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <div class="card-icon">${plan.icon}</div>
-                                            <h3 class="card-title">${plan.nombre}</h3>
-                                            <p class="card-description">${plan.descripcion}</p>
-                                            <button class="btn-custom" onclick="flipCard('${section}', ${index})">
-                                                Ver Más
-                                            </button>
-                                        </div>
-                                        <div class="flip-card-back">
-                                            <h3 class="card-title">${plan.nombre}</h3>
-                                            <p class="card-description">${plan.direccion}</p>
-                                            <ul class="back-list">
-                                                ${plan.caracteristicas.map(item => `<li>${item}</li>`).join('')}
-                                            </ul>
-                                            <button class="btn-custom" onclick="flipCard('${section}', ${index})" style="margin-top: auto;">
-                                                Volver
-                                            </button>
-                                        </div>
+                    </div>
+                </div>
+                
+                <div class="plans-section">
+                    <h2 class="plans-title">Nuestros Planes</h2>
+                    <div class="cards-container">
+                        ${sectionData.planes.map((plan, index) => `
+                            <div class="flip-card" id="card-${section}-${index}">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-icon">${plan.icon}</div>
+                                        <h3 class="card-title">${plan.nombre}</h3>
+                                        <p class="card-description">${plan.descripcion}</p>
+                                        <button class="btn-custom" onclick="flipCard('${section}', ${index})">
+                                            Ver Más
+                                        </button>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h3 class="card-title">${plan.nombre}</h3>
+                                        <p class="card-description">${plan.direccion}</p>
+                                        <ul class="back-list">
+                                            ${plan.caracteristicas.map(item => `<li>${item}</li>`).join('')}
+                                        </ul>
+                                        <button class="btn-custom" onclick="flipCard('${section}', ${index})" style="margin-top: auto;">
+                                            Volver
+                                        </button>
                                     </div>
                                 </div>
-                            `).join('')}
-                        </div>
+                            </div>
+                        `).join('')}
                     </div>
                 </div>
             `;
