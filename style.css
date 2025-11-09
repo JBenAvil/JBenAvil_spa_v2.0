@@ -800,226 +800,185 @@ option {
     }
 }
 
-/* Agregar estos estilos al final de tu style.css */
-
-/* Transiciones suaves para el contenido */
-#mainContent {
-    transition: opacity 0.3s ease;
-}
-
-/* Sección de planes (igual que la sección de servicios) */
-.plans-section {
+/* Sección de Pago Flex */
+.flex-payment-section {
     margin-top: 50px;
     padding-top: 40px;
-    border-top: 2px solid rgba(30, 144, 255, 0.3);
+    border-top: 2px solid rgba(0, 255, 255, 0.3);
 }
 
-.plans-title {
+.flex-title {
     font-size: 2rem;
     font-weight: 700;
-    color: #1e90ff;
-    text-align: center;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(30, 144, 255, 0.8), 0 0 20px rgba(30, 144, 255, 0.4);
-}
-
-/* Estilos para mensajes de carga y error */
-.loading-message,
-.error-message {
-    text-align: center;
-    padding: 50px;
-    color: #1e90ff;
-    font-size: 1.2rem;
-}
-
-.error-message i {
-    font-size: 3rem;
-    color: #ff4444;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.error-message h3 {
-    color: #1e90ff;
-    margin-bottom: 15px;
-}
-
-.error-message p {
-    color: #cccccc;
-}
-
-/* Wrapper del contrato cuando se carga dinámicamente */
-.contract-wrapper {
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Estilos específicos del formulario de contrato */
-.form-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 40px;
-    border: 2px solid rgba(30, 144, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-.form-container h2 {
-    color: #1e90ff;
+    color: #00ffff;
     text-align: center;
     margin-bottom: 30px;
-    font-weight: 700;
-    text-shadow: 0 0 10px rgba(30, 144, 255, 0.8), 0 0 20px rgba(30, 144, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.4);
 }
 
-.form-label {
-    color: #1e90ff;
-    font-weight: 600;
-    margin-bottom: 8px;
-    text-shadow: 0 0 5px rgba(30, 144, 255, 0.6);
+.flex-description {
+    text-align: center;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.form-control,
-.form-select {
-    background: rgba(0, 0, 0, 0.6);
-    border: 2px solid rgba(30, 144, 255, 0.3);
+.flex-benefits {
+    list-style: none;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 0;
+}
+
+.flex-benefits li {
     color: #ffffff;
-    border-radius: 8px;
-    padding: 10px 15px;
-    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.form-control:focus,
-.form-select:focus {
-    background: rgba(0, 0, 0, 0.8);
-    border-color: #1e90ff;
-    box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
-    color: #ffffff;
-}
-
-.form-control::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
-
-#signatureCanvas {
-    border: 2px solid rgba(30, 144, 255, 0.4);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.95);
-    cursor: crosshair;
-    display: block;
-    margin: 10px auto;
-    max-width: 100%;
-    box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
-}
-
-.btn-outline-secondary {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(30, 144, 255, 0.4);
-    color: #1e90ff;
-    transition: all 0.3s ease;
-}
-
-.btn-outline-secondary:hover {
-    background: rgba(30, 144, 255, 0.2);
-    border-color: #1e90ff;
-    color: #1e90ff;
-    box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
-}
-
-.btn-generar-pdf {
-    background: linear-gradient(135deg, #1e90ff 0%, #00bfff 100%);
-    border: none;
+.benefit-number {
+    background: linear-gradient(135deg, #00ffff 0%, #00bfff 100%);
     color: #000000;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(30, 144, 255, 0.4);
-}
-
-.btn-generar-pdf:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba(30, 144, 255, 0.6), 0 5px 20px rgba(30, 144, 255, 0.4);
-    background: linear-gradient(135deg, #00bfff 0%, #1e90ff 100%);
-}
-
-.fw-semibold {
-    color: #1e90ff;
-    text-shadow: 0 0 5px rgba(30, 144, 255, 0.6);
-}
-
-.back-home {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    border: 2px solid #1e90ff;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    flex-shrink: 0;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.flex-subtitle {
+    text-align: center;
+    color: #00ffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 40px 0 20px;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+.flex-payment-text {
+    text-align: center;
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.table-responsive-wrapper {
+    overflow-x: auto;
+    margin: 30px 0;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.flex-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.6);
+    min-width: 600px;
+}
+
+.flex-table thead {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.3) 0%, rgba(0, 191, 255, 0.3) 100%);
+}
+
+.flex-table th {
+    padding: 18px 15px;
+    text-align: center;
+    color: #00ffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(0, 255, 255, 0.5);
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+.flex-table tbody tr {
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
-    z-index: 1000;
-    text-decoration: none;
-    color: #1e90ff;
 }
 
-.back-home:hover {
-    transform: scale(1.2);
-    border-color: #1e90ff;
-    box-shadow: 0 0 20px rgba(30, 144, 255, 0.8), 0 0 40px rgba(30, 144, 255, 0.4);
-    background: rgba(30, 144, 255, 0.2);
-    color: #1e90ff;
+.flex-table tbody tr:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
 }
 
-.back-home i {
-    font-size: 24px;
-    filter: drop-shadow(0 0 5px rgba(30, 144, 255, 0.8));
-}
-
-option {
-    background: #1a1a1a;
+.flex-table td {
+    padding: 15px;
+    text-align: center;
     color: #ffffff;
+    font-size: 1rem;
 }
 
-@media (max-width: 768px) {
-    .form-container {
-        padding: 25px 20px;
-    }
+.flex-table .total-cell {
+    color: #00ffaa;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-shadow: 0 0 5px rgba(0, 255, 170, 0.5);
+}
 
-    .form-container h2 {
+/* Responsive para tabla */
+@media (max-width: 768px) {
+    .flex-table {
+        min-width: 100%;
+        font-size: 0.9rem;
+    }
+    
+    .flex-table th,
+    .flex-table td {
+        padding: 12px 8px;
+        font-size: 0.85rem;
+    }
+    
+    .flex-title {
         font-size: 1.5rem;
     }
-
-    #signatureCanvas {
-        width: 100%;
-        height: 120px;
+    
+    .flex-benefits li {
+        font-size: 1rem;
     }
-
-    .back-home {
-        width: 50px;
+    
+    .benefit-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    
+    .carousel-track {
+        gap: 30px;
+    }
+    
+    .client-logo {
         height: 50px;
+        max-width: 120px;
     }
+}
 
-    .back-home i {
-        font-size: 20px;
+@media (max-width: 480px) {
+    .flex-table th,
+    .flex-table td {
+        padding: 10px 5px;
+        font-size: 0.75rem;
+    }
+    
+    .table-responsive-wrapper {
+        margin: 20px -20px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
     }
 }

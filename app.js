@@ -3,6 +3,8 @@ let data = {};
 let currentSection = 'inicio';
 let currentCourse = null;
 
+
+
 // Cargar datos desde data.json
 async function loadData() {
     try {
@@ -191,6 +193,69 @@ function renderContent(section, courseIndex = null) {
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="flex-payment-section">
+                        <h2 class="flex-title">Ahora Nuestro Plan Emprendedor es de Pago Flex</h2>
+                        <p class="flex-description">
+                            Nuestro plan emprendedor está diseñado exclusivamente para potenciar a emprendedores y guiarlos en el proceso de formalización, por eso nuestro plan incluye:
+                        </p>
+                        <ul class="flex-benefits">
+                            <li><span class="benefit-number">1.</span> Constitución de Empresa</li>
+                            <li><span class="benefit-number">2.</span> Inicio de Actividades</li>
+                            <li><span class="benefit-number">3.</span> Contabilidad Mensual y Gestión Tributaria</li>
+                            <li><span class="benefit-number">4.</span> Asesoría Administrativa</li>
+                            <li><span class="benefit-number">5.</span> Página Web Informativa para tu Negocio</li>
+                        </ul>
+                        <h3 class="flex-subtitle">UN VERDADERO PLAN EMPRENDEDOR DE PAGO FLEXIBLE</h3>
+                        <p class="flex-payment-text">Paga en función de tus ventas mensuales:</p>
+                        
+                        <div class="table-responsive-wrapper">
+                            <table class="flex-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rango de Ingreso Mensual</th>
+                                        <th>Valor Flex</th>
+                                        <th>IVA</th>
+                                        <th>Valor Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-label="Rango de Ingreso Mensual">$0 - $10.000</td>
+                                        <td data-label="Valor Flex">$5.000</td>
+                                        <td data-label="IVA">$950</td>
+                                        <td data-label="Valor Total" class="total-cell">$5.950</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Rango de Ingreso Mensual">$10.001 - $20.000</td>
+                                        <td data-label="Valor Flex">$10.000</td>
+                                        <td data-label="IVA">$1.900</td>
+                                        <td data-label="Valor Total" class="total-cell">$11.900</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Rango de Ingreso Mensual">$20.001 - $50.000</td>
+                                        <td data-label="Valor Flex">$15.000</td>
+                                        <td data-label="IVA">$2.850</td>
+                                        <td data-label="Valor Total" class="total-cell">$17.850</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Rango de Ingreso Mensual">$50.001 - $100.000</td>
+                                        <td data-label="Valor Flex">$20.000</td>
+                                        <td data-label="IVA">$3.800</td>
+                                        <td data-label="Valor Total" class="total-cell">$23.800</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Rango de Ingreso Mensual">+ de $100.000</td>
+                                        <td data-label="Valor Flex">$25.000</td>
+                                        <td data-label="IVA">$4.750</td>
+                                        <td data-label="Valor Total" class="total-cell">$29.750</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                  
                 `;
             }
         }
